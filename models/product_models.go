@@ -11,7 +11,7 @@ type Product struct {
 	Product_Qty         int    `json:"qty" form:"qty"`
 }
 
-// get product
+// get product structure
 type GetProduct struct {
 	ID                  uint
 	Product_Name        string
