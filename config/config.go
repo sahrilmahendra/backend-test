@@ -32,3 +32,20 @@ func InitDB() {
 func InitMigrate() {
 	DB.AutoMigrate(&models.Product{})
 }
+
+func InitDBTest() {
+	config := "root:root@tcp(localhost:3306)/erajaya_test?charset=utf8&parseTime=True&loc=Local"
+
+	var e error
+
+	DB, e = gorm.Open(mysql.Open(config), &gorm.Config{})
+	if e != nil {
+		panic(e)
+	}
+	InitMigrateTest()
+}
+
+func InitMigrateTest() {
+	DB.Migrator().DropTable(&models.Product{})
+	DB.AutoMigrate(&models.Product{})
+}
