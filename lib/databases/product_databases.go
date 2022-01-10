@@ -42,3 +42,23 @@ func GetAllProductsOrderByNameDesc() (interface{}, error) {
 	}
 	return get_products, nil
 }
+
+// database function for get all product order by price ascending
+func GetAllProductsOrderByPriceAsc() (interface{}, error) {
+	var get_products []models.GetProduct
+	query := config.DB.Table("products").Select("*").Where("products.deleted_at IS NULL").Order("products.product_price ASC").Find(&get_products)
+	if query.Error != nil || query.RowsAffected == 0 {
+		return nil, query.Error
+	}
+	return get_products, nil
+}
+
+// database function for get all product order by price descending
+func GetAllProductsOrderByPriceDesc() (interface{}, error) {
+	var get_products []models.GetProduct
+	query := config.DB.Table("products").Select("*").Where("products.deleted_at IS NULL").Order("products.product_price DESC").Find(&get_products)
+	if query.Error != nil || query.RowsAffected == 0 {
+		return nil, query.Error
+	}
+	return get_products, nil
+}

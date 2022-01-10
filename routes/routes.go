@@ -22,6 +22,8 @@ func New() *echo.Echo {
 	e.GET("/products/newest", controllers.GetAllProductsController)
 	e.GET("/products/name/asc", controllers.GetAllProductsByNameAscController)
 	e.GET("/products/name/desc", controllers.GetAllProductsByNameDescController)
+	e.GET("/products/price/low", controllers.GetAllProductsByPriceAscController)
+	e.GET("/products/price/expensive", controllers.GetAllProductsByPriceDescController)
 
 	return e
 }
