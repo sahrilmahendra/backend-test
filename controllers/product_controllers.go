@@ -54,3 +54,15 @@ func AddProductController(c echo.Context) error {
 	}
 	return c.JSON(http.StatusOK, responses.SuccessResponseNonData("Success Operation"))
 }
+
+// Conttroller for get all products
+func GetAllProductsController(c echo.Context) error {
+	products, err := databases.GetAllProducts()
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, responses.BadRequestResponse("Bad Request"))
+	}
+	if products == nil {
+		return c.JSON(http.StatusNotFound, responses.StatusDataNotFound("Data Not Found"))
+	}
+	return c.JSON(http.StatusOK, responses.SuccessResponseData("Success Operation", products))
+}
