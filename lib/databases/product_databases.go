@@ -22,3 +22,12 @@ func GetAllProducts() (interface{}, error) {
 	}
 	return get_products, nil
 }
+
+func GetAllProductsOrderByNameAsc() (interface{}, error) {
+	var get_products []models.GetProduct
+	query := config.DB.Table("products").Select("*").Where("products.deleted_at IS NULL").Order("products.product_name ASC").Find(&get_products)
+	if query.Error != nil || query.RowsAffected == 0 {
+		return nil, query.Error
+	}
+	return get_products, nil
+}
