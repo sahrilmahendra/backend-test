@@ -1,0 +1,259 @@
+openapi: '3.0.1'
+info:
+  title: 'Backend Test Erajaya'
+  version: '1.0'
+  description: 'API Documentation for Backend Test Erajaya'
+  contact: 
+    name: Sahril Official
+    url: http://13.229.248.117
+    email: sahrilmahendra@gmail.com
+externalDocs: 
+  description: "GitHub Repository of Backend Test Erajaya"
+  url: https://github.com/sahrilmahendra/backend-test
+servers:
+  - url: http://13.229.248.117
+    description: Base URL that will be used for endpoints
+tags:
+  - name: Products
+    description: Endpoint for perform operations on product
+paths:
+####################################
+#  PRODUCTS
+####################################
+  /products:
+    get:
+      tags:
+      - Products
+      summary: Get all products
+      responses:
+        '200':
+          $ref: '#/components/responses/getAllProductsSuccess'
+        '400':
+          $ref: '#/components/responses/getAllBadRequest'
+        '404':
+          $ref: '#/components/responses/getAllDataNotFound'
+  /products/newest:
+    get:
+      tags:
+      - Products
+      summary: Get all products by created at
+      responses:
+        '200':
+          $ref: '#/components/responses/getAllProductsSuccess'
+        '400':
+          $ref: '#/components/responses/getAllBadRequest'
+        '404':
+          $ref: '#/components/responses/getAllDataNotFound'
+  /products/name/asc:
+    get:
+      tags:
+      - Products
+      summary: Get all products by name ascending
+      responses:
+        '200':
+          $ref: '#/components/responses/getAllProductsSuccess'
+        '400':
+          $ref: '#/components/responses/getAllBadRequest'
+        '404':
+          $ref: '#/components/responses/getAllDataNotFound'
+  /products/name/desc:
+    get:
+      tags:
+      - Products
+      summary: Get all products by name descending
+      responses:
+        '200':
+          $ref: '#/components/responses/getAllProductsSuccess'
+        '400':
+          $ref: '#/components/responses/getAllBadRequest'
+        '404':
+          $ref: '#/components/responses/getAllDataNotFound'
+  /products/price/low:
+    get:
+      tags:
+      - Products
+      summary: Get all products by price low
+      responses:
+        '200':
+          $ref: '#/components/responses/getAllProductsSuccess'
+        '400':
+          $ref: '#/components/responses/getAllBadRequest'
+        '404':
+          $ref: '#/components/responses/getAllDataNotFound'
+  /products/price/expensive:
+    get:
+      tags:
+      - Products
+      summary: Get all products by price expensive
+      responses:
+        '200':
+          $ref: '#/components/responses/getAllProductsSuccess'
+        '400':
+          $ref: '#/components/responses/getAllBadRequest'
+        '404':
+          $ref: '#/components/responses/getAllDataNotFound'
+  /products:
+    post:
+      tags:
+        - Products
+      summary: Add a new product
+      requestBody:
+        $ref: '#/components/requestBodies/requestBodyProduct'
+      responses:
+        '200':
+          $ref: '#/components/responses/successOperationNonData'
+        '400':
+          $ref: '#/components/responses/createProductFailed'
+####################################
+#  COMPONENTS
+####################################
+components:
+  schemas:
+    requestDataProduct:
+      type: object
+      required:
+        - product_name
+        - product_price
+        - product_description
+        - product_qty
+      properties:
+        product_name:
+          type: string
+          minLength: 1
+        product_price:
+          type: integer
+          minimum: 1
+    responseProductWithDataArray:
+      type: object
+      properties:
+        Code:
+          type: integer
+        Data:
+          type: object
+          properties:
+            ID:
+              type: integer
+            Product_Name:
+              type: string
+            Product_Price:
+              type: integer
+            Product_Description:
+              type: string
+            Product_Qty:
+              type: integer
+        Message:
+          type: string      
+  parameters:
+    idParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 1
+    idProducts:
+      name: id_products
+      in: path
+      required: true
+      schema:
+        type: integer
+        example: 1
+    requestBodyProduct:
+      required: true
+      content:
+        multipart/form-data:
+          schema:
+            $ref: '#/components/schemas/requestDataProduct'
+  responses:
+    successOperationNonData:
+      description: Success Response Non Data
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseNonData'
+          example:
+            Code: 200
+            Message: Success Operation
+    createProductFailed:
+      description: Bad Request Response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseNonData'
+          examples:
+            Bad Request:
+              $ref: '#/components/examples/badRequest'
+            Product Name Empty:
+              $ref: '#/components/examples/productNameEmpty'        
+            Product Price Empty:
+              $ref: '#/components/examples/productPriceEmpty'        
+            Product Price Zero:
+              $ref: '#/components/examples/productPriceZero'        
+            Product Qty Empty:
+              $ref: '#/components/examples/productQtyEmpty'        
+            Product Qty Zero:
+              $ref: '#/components/examples/productQtyZero'        
+            Product Description Empty:
+              $ref: '#/components/examples/productDescriptionEmpty'        
+    getAllProductsSuccess:
+      description: Success Response Data
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseProductWithDataArray'
+          example:
+            Code: 200
+            Data: [
+              { 
+                ID: 3,
+                Product_Name: Product Dummy,
+                Product_Price: 100000,
+                Product_Description: lorem,
+                Product_Qty: 4,
+              },
+              { 
+                ID: 4,
+                Product_Name: Product Extraordinary,
+                Product_Price: 400000,
+                Product_Description: lorem ipsum,
+                Product_Qty: 7,
+              }
+            ]
+            Message: Success Operation
+  examples:
+    badRequest:
+      value:
+        Code: 400
+        Message: Bad Request
+    dataNotFound:
+      value:
+        Code: 404
+        Message: Data Not Found
+    internalServerError:
+      value:
+        Code: 500
+        Message: Internal Server Error
+    productNameEmpty:
+      value:
+        Code: 400
+        Message: Product's name can't be empty
+    productPriceEmpty:
+      value:
+        Code: 400
+        Message: Product's price can't be empty
+    productPriceZero:
+      value:
+        Code: 400
+        Message: Product's price must be greater than 0
+    productQtyEmpty:
+      value:
+        Code: 400
+        Message: Product's quantity can't be empty
+    productQtyZero:
+      value:
+        Code: 400
+        Message: Product's quantity must be greater than 0
+    productDescriptionEmpty: 
+      value:
+        Code: 400
+        Message: Product's description can't be empty
