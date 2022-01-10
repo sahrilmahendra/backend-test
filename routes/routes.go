@@ -19,7 +19,8 @@ func New() *echo.Echo {
 
 	// route products without auth
 	e.POST("/products", controllers.AddProductController)
-	e.GET("/products/newest", controllers.GetAllProductsController)
+	e.GET("/products", controllers.GetAllProductsController)
+	e.GET("/products/newest", controllers.GetAllProductsByCreatedDescController)
 	e.GET("/products/name/asc", controllers.GetAllProductsByNameAscController)
 	e.GET("/products/name/desc", controllers.GetAllProductsByNameDescController)
 	e.GET("/products/price/low", controllers.GetAllProductsByPriceAscController)
