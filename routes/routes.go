@@ -21,6 +21,7 @@ func New() *echo.Echo {
 	e.POST("/products", controllers.AddProductController)
 	e.GET("/products/newest", controllers.GetAllProductsController)
 	e.GET("/products/name/asc", controllers.GetAllProductsByNameAscController)
+	e.GET("/products/name/desc", controllers.GetAllProductsByNameDescController)
 
 	return e
 }
