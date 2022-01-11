@@ -26,6 +26,10 @@ Berikut fitur yang terdapat dalam project ini :
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Unit Testing
+  <img src="images/result_unit_testing.PNG">
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Built With
 
 <!-- * [Golang](https://golang.org/)
