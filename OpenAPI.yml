@@ -79,11 +79,11 @@ paths:
           $ref: "#/components/responses/getAllBadRequest"
         "404":
           $ref: "#/components/responses/getAllDataNotFound"
-  /products/price/low:
+  /products/price/lowest:
     get:
       tags:
         - Products
-      summary: Get all products by price low
+      summary: Get all products by price lowest
       responses:
         "200":
           $ref: "#/components/responses/getAllProductsSuccess"
@@ -91,11 +91,11 @@ paths:
           $ref: "#/components/responses/getAllBadRequest"
         "404":
           $ref: "#/components/responses/getAllDataNotFound"
-  /products/price/expensive:
+  /products/price/highest:
     get:
       tags:
         - Products
-      summary: Get all products by price expensive
+      summary: Get all products by price highest
       responses:
         "200":
           $ref: "#/components/responses/getAllProductsSuccess"

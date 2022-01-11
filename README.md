@@ -26,6 +26,10 @@ Berikut fitur yang terdapat dalam project ini :
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Unit Testing
+  <img src="images/result_unit_testing.PNG">
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Built With
 
 <!-- * [Golang](https://golang.org/)
@@ -41,7 +45,7 @@ Berikut fitur yang terdapat dalam project ini :
 
 <!-- Architecture -->
 ## Architecture
-Dalam mengerjakan tes ini saya mengguanakan konsep MVC (Model View Controller) yang mana apabila terjadi maintenance akan mudah untuk dikerjakan,
+Dalam mengerjakan tes ini saya menggunakan konsep MVC (Model View Controller) yang mana apabila terjadi maintenance akan mudah untuk dikerjakan,
 karena MVC memetakan setiap bagian kedalam struktur dengan jelas.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -50,7 +54,7 @@ karena MVC memetakan setiap bagian kedalam struktur dengan jelas.
 ## Contact
 
 Project Link : [https://github.com/sahrilmahendra/backend-test](https://github.com/sahrilmahendra/backend-test)<br/>
-Open API Documentation : [https://app.swaggerhub.com/apis-docs/sahrilmahendra/backend-test-erajaya/1.0#/](https://app.swaggerhub.com/apis-docs/sahrilmahendra/backend-test-erajaya/1.0#/)&nbsp;
+Open API Documentation : [https://app.swaggerhub.com/apis-docs/sahrilmahendra/backend-test-erajaya/1.1](https://app.swaggerhub.com/apis-docs/sahrilmahendra/backend-test-erajaya/1.1)&nbsp;
 <!-- :heart: -->
 <!-- CONTRIBUTOR -->
 Contributor :
