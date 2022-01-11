@@ -45,7 +45,7 @@ Berikut fitur yang terdapat dalam project ini :
 
 <!-- Architecture -->
 ## Architecture
-Dalam mengerjakan tes ini saya mengguanakan konsep MVC (Model View Controller) yang mana apabila terjadi maintenance akan mudah untuk dikerjakan,
+Dalam mengerjakan tes ini saya menggunakan konsep MVC (Model View Controller) yang mana apabila terjadi maintenance akan mudah untuk dikerjakan,
 karena MVC memetakan setiap bagian kedalam struktur dengan jelas.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
