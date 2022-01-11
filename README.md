@@ -5,7 +5,7 @@
   <p align="center">
     Dokumentasi RESTful API Backend Test Erajaya
     <br />
-    <a href="https://app.swaggerhub.com/apis-docs/sahrilmahendra/backend-test-erajaya/1.0#/"><strong>Explore the docs Open API »</strong></a>
+    <a href="https://app.swaggerhub.com/apis-docs/sahrilmahendra/backend-test-erajaya/1.1/"><strong>Explore the docs Open API »</strong></a>
     <br />
   </p>
 </div>
