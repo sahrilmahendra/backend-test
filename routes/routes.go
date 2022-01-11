@@ -23,8 +23,8 @@ func New() *echo.Echo {
 	e.GET("/products/newest", controllers.GetAllProductsByCreatedDescController)
 	e.GET("/products/name/asc", controllers.GetAllProductsByNameAscController)
 	e.GET("/products/name/desc", controllers.GetAllProductsByNameDescController)
-	e.GET("/products/price/low", controllers.GetAllProductsByPriceAscController)
-	e.GET("/products/price/expensive", controllers.GetAllProductsByPriceDescController)
+	e.GET("/products/price/lowest", controllers.GetAllProductsByPriceAscController)
+	e.GET("/products/price/highest", controllers.GetAllProductsByPriceDescController)
 
 	return e
 }
